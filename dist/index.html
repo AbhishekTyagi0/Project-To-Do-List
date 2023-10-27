@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet" />
     <title>To Do App</title>
 <script defer src="main.js"></script></head>
+
 <body>
-    
     <header class="header">Save your To Do List</header>
 
     <div class="sidebar">list</div>
 
-    <main class="main"> all list be here!</main>
+    <main class="main">
+        <div class="add-button"><button>+</button></div>
+        <div class="task-container"></div>
+    </main>
 
-    <footer class="footer">Copyright</footer>
+    <footer class="footer">Copyright All right reserved</footer>
 
+    <!-- dialog -->
+
+    <dialog class="dialog">
+        <div class="dialog-container">
+            <h3>New Task!</h3>
+            <div class="dialog-items">
+                <input type="text" id="title" placeholder="enter your task title" required />
+            </div>
+            <div class="dialog-items">
+                <textarea rows="4" cols="40" id="myTextarea" placeholder="enter description"></textarea>
+            </div>
+            <div class="dialog-items">
+                <input type="date" class="taskDate" />
+            </div>
+            <div class="dialog-items">
+                <button autofocus>Cancel</button>
+                <button type="submit" class="btn-confirm">Confirm</button>
+            </div>
+        </div>
+    </dialog>
 </body>
+
 </html>

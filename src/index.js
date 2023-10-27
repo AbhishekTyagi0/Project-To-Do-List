@@ -1,3 +1,14 @@
-import './style.css';
+import './styles/style.css';
 
-console.log("checking webpack workings")
+import { taskCard } from './addButton';
+
+
+function task(){
+
+    const container = document.querySelector('.task-container');
+
+    taskCard();
+
+}
+
+task()
