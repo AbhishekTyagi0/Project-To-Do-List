@@ -88,3 +88,26 @@
     font-size: 16px;
     width: 132px;
 }
+
+::backdrop {
+    
+    background-color: grey;
+    opacity: 0.3;
+  }
+
+
+.task-container{
+
+    padding: 25px;
+}
+
+
+.card{
+
+    border: 1px solid #eee;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    gap: 20px;
+}

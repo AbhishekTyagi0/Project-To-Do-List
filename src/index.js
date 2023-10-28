@@ -1,14 +1,13 @@
-import './styles/style.css';
+import "./styles/style.css";
 
-import { taskCard } from './addButton';
+import { taskCard, confirm, removeTaskCard } from "./addButton";
 
+function task() {
 
-function task(){
+  taskCard();
 
-    const container = document.querySelector('.task-container');
-
-    taskCard();
-
+  confirm();
+  // removeTaskCard()
 }
 
-task()
+task();
