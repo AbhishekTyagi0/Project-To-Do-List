@@ -72,3 +72,11 @@ body {
   align-items: center;
   font-size: 15px;
 }
+
+
+.taskComplete{
+
+  text-decoration: line-through;
+  opacity: 0.3;
+  color: aqua;
+}

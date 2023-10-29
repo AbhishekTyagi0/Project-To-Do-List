@@ -1,13 +1,13 @@
 import "./styles/style.css";
 
-import { taskCard, confirm, removeTaskCard } from "./addButton";
+import { taskCard, confirm, taskCompleted } from "./addButton";
 
 function task() {
 
   taskCard();
 
   confirm();
-  // removeTaskCard()
+
 }
 
 task();

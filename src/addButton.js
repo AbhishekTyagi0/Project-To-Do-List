@@ -1,3 +1,6 @@
+let allTask = [];
+
+//create task
 export function taskCard() {
   const addButton = document.querySelector(".add-button>button");
   const dialog = document.querySelector(".dialog");
@@ -12,8 +15,7 @@ export function taskCard() {
   });
 }
 
-let allTask = [];
-
+//dialog card element
 
 function addTask(titleText, description, dueDate) {
   const taskContainer = document.querySelector(".task-container");
@@ -22,14 +24,18 @@ function addTask(titleText, description, dueDate) {
   card.classList.add("card");
 
   const taskStatus = document.createElement("input");
-  taskStatus.style.width = "10%";
+  taskStatus.style.width = "3%";
+  taskStatus.style.height = "40%";
   taskStatus.type = "checkbox";
+  taskStatus.checked = false;
+  taskStatus.classList.add("taskStatus");
   card.appendChild(taskStatus);
 
   const taskTitle = document.createElement("h2");
   taskTitle.style.width = "25%";
   const index = allTask.length + 1;
   taskTitle.textContent = `${titleText}`;
+  taskTitle.classList.add("taskTitle");
   card.appendChild(taskTitle);
 
   const taskDesc = document.createElement("h4");
@@ -61,28 +67,48 @@ function addTask(titleText, description, dueDate) {
     removeTask(taskId);
   });
 
-
   function removeTask(taskId) {
     // Find the task in the allTask array and remove it
     allTask = allTask.filter((task) => task.taskId != taskId);
-  
     // Find the card by the taskId and remove it from the DOM
     const cardToRemove = document.querySelector(`[data-task-id="${taskId}"]`);
     if (cardToRemove) {
       cardToRemove.remove();
     }
-    console.log(allTask);
   }
-
 
   allTask.push({
     taskId: index, // Use a taskId property
     titleText: titleText,
     description: description,
     dueDate: dueDate,
+    isComplete: false,
   });
 
-  console.log(allTask);
+  //checkbox
+  function taskCompleted() {
+    const taskStatus = document.querySelectorAll(".card>.taskStatus");
+    const taskTitle = document.querySelectorAll(".taskTitle");
+
+    taskStatus.forEach((checkbox,index) => {
+
+      let taskId = index;
+
+      checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+          taskTitle[index].classList.add("taskComplete");
+          allTask[taskId].isComplete = true;
+        } else {
+          taskTitle[index].classList.remove("taskComplete");
+          allTask[taskId].isComplete = false;
+        }
+      });
+    });
+  }
+
+  taskCompleted();
+
+
 }
 
 export function confirm() {
@@ -97,10 +123,9 @@ export function confirm() {
     const descriptionText = descriptionInput.value;
     const dateText = dateInput.value;
 
-
     addTask(titleText, descriptionText, dateText);
 
     dialog.close();
+    console.log(allTask);
   });
 }
-

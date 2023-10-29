@@ -111,3 +111,8 @@
     padding-left: 15px;
     gap: 20px;
 }
+
+.taskComplete{
+
+    text-decoration: line-through;
+}
